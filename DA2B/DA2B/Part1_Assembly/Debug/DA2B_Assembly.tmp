@@ -1,0 +1,37 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\avrasm\inc\m328pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\Debug\DA2B_Assembly.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>DA2B_Assembly.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>DA2B_Assembly.map</FILE>
+  <FILE>DA2B_Assembly.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>12</LINE></MAIN>
+  <EX0_ISR><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>31</LINE></EX0_ISR>
+  <HERE><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>29</LINE></HERE>
+  <delay_1s><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>43</LINE></delay_1s>
+  <delay_100ms><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>57</LINE></delay_100ms>
+  <delay_50ms><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>70</LINE></delay_50ms>
+  <delay_10ms><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>78</LINE></delay_10ms>
+  <delay_5ms><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>84</LINE></delay_5ms>
+  <delay_1ms><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>93</LINE></delay_1ms>
+  <delay_1b><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>97</LINE></delay_1b>
+  <delay_1a><FILE>c:\users\james skelly\Documents\Atmel Studio\7.0\DA2B\Part1_Assembly\main.asm</FILE><LINE>98</LINE></delay_1a>
+ </LABELS>
+</ASSEMBLER_INFO>
