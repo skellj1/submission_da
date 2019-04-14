@@ -1,0 +1,270 @@
+
+DA4A_JS.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  0000020c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000198  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000003  00800100  00800100  0000020c  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000020c  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000023c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000028  00000000  00000000  0000027c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000074d  00000000  00000000  000002a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000689  00000000  00000000  000009f1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000306  00000000  00000000  0000107a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000005c  00000000  00000000  00001380  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003b0  00000000  00000000  000013dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000000c5  00000000  00000000  0000178c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000018  00000000  00000000  00001851  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 72 00 	jmp	0xe4	; 0xe4 <__vector_4>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	21 e0       	ldi	r18, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	a3 30       	cpi	r26, 0x03	; 3
+  80:	b2 07       	cpc	r27, r18
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 48 00 	call	0x90	; 0x90 <main>
+  88:	0c 94 ca 00 	jmp	0x194	; 0x194 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <main>:
+int adcVal;			// holds value of ADC
+char toggle = 0;	// initialize toggle variable
+
+int main(void)
+{
+	DDRB = 0xFF;			// PORTB as output
+  90:	8f ef       	ldi	r24, 0xFF	; 255
+  92:	84 b9       	out	0x04, r24	; 4
+	DDRC = 0x00;			// PORTC as input
+  94:	17 b8       	out	0x07, r1	; 7
+	PORTB |= 0xFF;			// Set all of PORTB high initially
+  96:	95 b1       	in	r25, 0x05	; 5
+  98:	85 b9       	out	0x05, r24	; 5
+	
+	// set timer1 operation mode and prescaler
+	TCCR1A |= (1<<COM1A1)|(1<<COM1B1)|(1<<WGM11);	// use PWM for output compare pins
+  9a:	e0 e8       	ldi	r30, 0x80	; 128
+  9c:	f0 e0       	ldi	r31, 0x00	; 0
+  9e:	80 81       	ld	r24, Z
+  a0:	82 6a       	ori	r24, 0xA2	; 162
+  a2:	80 83       	st	Z, r24
+													// OC1A/B, Fast PWM, Non-inverted mode
+	TCCR1B |= (1<<WGM13)|(1<<WGM12)|(1<<CS11);		// timer1 pre-scaler set to 8
+  a4:	e1 e8       	ldi	r30, 0x81	; 129
+  a6:	f0 e0       	ldi	r31, 0x00	; 0
+  a8:	80 81       	ld	r24, Z
+  aa:	8a 61       	ori	r24, 0x1A	; 26
+  ac:	80 83       	st	Z, r24
+	ICR1 = 10000;									// set TOP value
+  ae:	80 e1       	ldi	r24, 0x10	; 16
+  b0:	97 e2       	ldi	r25, 0x27	; 39
+  b2:	90 93 87 00 	sts	0x0087, r25	; 0x800087 <__TEXT_REGION_LENGTH__+0x7e0087>
+  b6:	80 93 86 00 	sts	0x0086, r24	; 0x800086 <__TEXT_REGION_LENGTH__+0x7e0086>
+	
+	PORTC |= (1<<PORTC1);	// set portc initially high to wait for button press
+  ba:	41 9a       	sbi	0x08, 1	; 8
+	PCICR = (1<<PCIE1);		// set portc input capture enable bit
+  bc:	82 e0       	ldi	r24, 0x02	; 2
+  be:	80 93 68 00 	sts	0x0068, r24	; 0x800068 <__TEXT_REGION_LENGTH__+0x7e0068>
+	PCMSK1 = (1<<PCINT9);	// enable pin change interrupt
+  c2:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <__TEXT_REGION_LENGTH__+0x7e006c>
+	
+	// Initialize ADC 
+	DIDR0 = 0x1;		// disable the digital input on ADC0 pin
+  c6:	81 e0       	ldi	r24, 0x01	; 1
+  c8:	80 93 7e 00 	sts	0x007E, r24	; 0x80007e <__TEXT_REGION_LENGTH__+0x7e007e>
+	ADMUX = (1<<REFS0);	// set ADC reference pin to PC0 (Potentiometer)
+  cc:	80 e4       	ldi	r24, 0x40	; 64
+  ce:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7e007c>
+	ADCSRA |= (1<<ADEN) | (1<<ADPS2) | (1<<ADPS1) | (1<<ADPS0);		// enable ADC using system clock 
+  d2:	ea e7       	ldi	r30, 0x7A	; 122
+  d4:	f0 e0       	ldi	r31, 0x00	; 0
+  d6:	80 81       	ld	r24, Z
+  d8:	87 68       	ori	r24, 0x87	; 135
+  da:	80 83       	st	Z, r24
+	ADCSRB = 0x0;		// free running mode
+  dc:	10 92 7b 00 	sts	0x007B, r1	; 0x80007b <__TEXT_REGION_LENGTH__+0x7e007b>
+	
+	sei();				// globally enable interrupts
+  e0:	78 94       	sei
+  e2:	ff cf       	rjmp	.-2      	; 0xe2 <main+0x52>
+
+000000e4 <__vector_4>:
+	while(1)		// wait for pin change interrupt request
+	{	
+	}
+}
+
+ISR(PCINT1_vect){
+  e4:	1f 92       	push	r1
+  e6:	0f 92       	push	r0
+  e8:	0f b6       	in	r0, 0x3f	; 63
+  ea:	0f 92       	push	r0
+  ec:	11 24       	eor	r1, r1
+  ee:	2f 93       	push	r18
+  f0:	3f 93       	push	r19
+  f2:	8f 93       	push	r24
+  f4:	9f 93       	push	r25
+  f6:	ef 93       	push	r30
+  f8:	ff 93       	push	r31
+	if(!(PINC & (1 << PINC2)))				// if button is pressed...
+  fa:	32 99       	sbic	0x06, 2	; 6
+  fc:	40 c0       	rjmp	.+128    	; 0x17e <__vector_4+0x9a>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  fe:	2f ef       	ldi	r18, 0xFF	; 255
+ 100:	83 ec       	ldi	r24, 0xC3	; 195
+ 102:	99 e0       	ldi	r25, 0x09	; 9
+ 104:	21 50       	subi	r18, 0x01	; 1
+ 106:	80 40       	sbci	r24, 0x00	; 0
+ 108:	90 40       	sbci	r25, 0x00	; 0
+ 10a:	e1 f7       	brne	.-8      	; 0x104 <__vector_4+0x20>
+ 10c:	00 c0       	rjmp	.+0      	; 0x10e <__vector_4+0x2a>
+ 10e:	00 00       	nop
+	{				
+		_delay_ms(200);						// debounce button pressed
+		while(!(PINC & (1 << PINC2)));		
+ 110:	32 9b       	sbis	0x06, 2	; 6
+ 112:	fe cf       	rjmp	.-4      	; 0x110 <__vector_4+0x2c>
+		
+		if(toggle == 1){
+ 114:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <_edata>
+ 118:	81 30       	cpi	r24, 0x01	; 1
+ 11a:	19 f5       	brne	.+70     	; 0x162 <__vector_4+0x7e>
+			PORTB |= (1 << PORTB1);			// set PB1 high
+ 11c:	29 9a       	sbi	0x05, 1	; 5
+			PORTB &= ~(1 << PORTB5);		// turn on LED D1
+ 11e:	2d 98       	cbi	0x05, 5	; 5
+			ADCSRA |= (1 << ADSC);			// start conversion
+ 120:	ea e7       	ldi	r30, 0x7A	; 122
+ 122:	f0 e0       	ldi	r31, 0x00	; 0
+ 124:	80 81       	ld	r24, Z
+ 126:	80 64       	ori	r24, 0x40	; 64
+ 128:	80 83       	st	Z, r24
+			while((ADCSRA&(1<<ADIF))==0);	// wait for conversion to finish
+ 12a:	80 81       	ld	r24, Z
+ 12c:	84 ff       	sbrs	r24, 4
+ 12e:	fd cf       	rjmp	.-6      	; 0x12a <__vector_4+0x46>
+			adcVal = ADC & 0x03FF;			// extract right 10-bits of ADC register
+ 130:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7e0078>
+ 134:	90 91 79 00 	lds	r25, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7e0079>
+ 138:	93 70       	andi	r25, 0x03	; 3
+ 13a:	90 93 02 01 	sts	0x0102, r25	; 0x800102 <adcVal+0x1>
+ 13e:	80 93 01 01 	sts	0x0101, r24	; 0x800101 <adcVal>
+			OCR1A = 10*adcVal;				// OCR1A value for duty cycle
+ 142:	9c 01       	movw	r18, r24
+ 144:	22 0f       	add	r18, r18
+ 146:	33 1f       	adc	r19, r19
+ 148:	88 0f       	add	r24, r24
+ 14a:	99 1f       	adc	r25, r25
+ 14c:	88 0f       	add	r24, r24
+ 14e:	99 1f       	adc	r25, r25
+ 150:	88 0f       	add	r24, r24
+ 152:	99 1f       	adc	r25, r25
+ 154:	82 0f       	add	r24, r18
+ 156:	93 1f       	adc	r25, r19
+ 158:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7e0089>
+ 15c:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
+ 160:	08 c0       	rjmp	.+16     	; 0x172 <__vector_4+0x8e>
+		}
+		else if(toggle == 0){
+ 162:	81 11       	cpse	r24, r1
+ 164:	06 c0       	rjmp	.+12     	; 0x172 <__vector_4+0x8e>
+			OCR1A = 0;						// set output compare value to 0
+ 166:	10 92 89 00 	sts	0x0089, r1	; 0x800089 <__TEXT_REGION_LENGTH__+0x7e0089>
+ 16a:	10 92 88 00 	sts	0x0088, r1	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
+			PORTB &= ~(1 << PORTB1);		// set PB1 low
+ 16e:	29 98       	cbi	0x05, 1	; 5
+			PORTB |= (1 << PORTB5);			// turn of LED D1
+ 170:	2d 9a       	sbi	0x05, 5	; 5
+		}
+		
+		toggle ^= 1;						// toggle the variable used to toggle
+ 172:	90 91 00 01 	lds	r25, 0x0100	; 0x800100 <_edata>
+ 176:	81 e0       	ldi	r24, 0x01	; 1
+ 178:	89 27       	eor	r24, r25
+ 17a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <_edata>
+	}
+}
+ 17e:	ff 91       	pop	r31
+ 180:	ef 91       	pop	r30
+ 182:	9f 91       	pop	r25
+ 184:	8f 91       	pop	r24
+ 186:	3f 91       	pop	r19
+ 188:	2f 91       	pop	r18
+ 18a:	0f 90       	pop	r0
+ 18c:	0f be       	out	0x3f, r0	; 63
+ 18e:	0f 90       	pop	r0
+ 190:	1f 90       	pop	r1
+ 192:	18 95       	reti
+
+00000194 <_exit>:
+ 194:	f8 94       	cli
+
+00000196 <__stop_program>:
+ 196:	ff cf       	rjmp	.-2      	; 0x196 <__stop_program>
